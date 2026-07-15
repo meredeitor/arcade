@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>4DX Arcade</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="display">
+      <section class="topbar">
+        <div class="team-head red">
+          <div class="team-name">Equipo Rojo</div>
+          <div id="redShell" class="power-shell"><div id="redPower" class="power-fill"></div><span class="super-tag">SUPER</span></div>
+          <div id="redCount" class="muted">0 jugadores</div>
+        </div>
+        <div class="brand">
+          <h1>4DX Power Clash</h1>
+          <p>Rompe el muro de la mala ejecucion</p>
+        </div>
+        <div class="team-head blue">
+          <div class="team-name">Equipo Azul</div>
+          <div id="blueShell" class="power-shell"><div id="bluePower" class="power-fill"></div><span class="super-tag">SUPER</span></div>
+          <div id="blueCount" class="muted">0 jugadores</div>
+        </div>
+      </section>
+
+      <section id="arena" class="arena cinematic">
+        <canvas id="arcadeCanvas" class="arcade-canvas"></canvas>
+        <div class="scan-box">
+          <strong>Escanea o entra desde tu celular</strong>
+          <img id="qrImg" class="qr-img" alt="QR para entrar al juego">
+          <div id="playUrl" class="url"></div>
+        </div>
+        <div id="impactText" class="impact-text">EJECUCION</div>
+      </section>
+
+      <section class="question-strip">
+        <div>
+          <span id="discipline" class="pill">Lobby</span>
+          <h2 id="question">Esperando al facilitador...</h2>
+          <p id="roundInfo" class="muted"></p>
+        </div>
+        <div id="phase" class="pill">Listos</div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+    <script src="/arcade.js"></script>
+  </body>
+</html>
+
