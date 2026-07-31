@@ -1,4 +1,4 @@
-﻿(async () => {
+(async () => {
 const setup = window.arcadeFirebase || {};
 const config = setup.firebaseConfig || {};
 const roomId = setup.roomId || "capacitacion-4dx";
@@ -20,8 +20,8 @@ if (!hasConfig()) {
   setStatus("Firebase sin configurar: modo local", false);
 } else {
   const [{ initializeApp }, firestore] = await Promise.all([
-    import("https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js"),
-    import("https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js")
+    import("https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js"),
+    import("https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js")
   ]);
 
   const {
@@ -101,4 +101,5 @@ if (!hasConfig()) {
 }
 
 })();
+
 

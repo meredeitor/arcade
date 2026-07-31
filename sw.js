@@ -1,4 +1,4 @@
-﻿const CACHE = "arcade-4dx-firebase-v1";
+﻿const CACHE = "arcade-4dx-firebase-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -29,4 +29,5 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   event.respondWith(caches.match(event.request).then((cached) => cached || fetch(event.request)));
 });
+
 
