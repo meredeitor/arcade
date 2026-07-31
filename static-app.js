@@ -214,6 +214,7 @@ function renderPhone() {
   const player = currentPlayer();
   $("join").hidden = Boolean(player);
   $("game").hidden = !player;
+  document.body.classList.toggle("player-entered", Boolean(player));
   if (!player) return;
   const q = state.questions[state.current];
   $("playerBadge").textContent = `${player.name} | ${state.teams[player.team].name}`;

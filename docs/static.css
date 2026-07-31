@@ -253,3 +253,54 @@
 @keyframes avatarIdle {
   50% { transform: translateY(-7px); }
 }
+
+.join-brand {
+  margin-bottom: 4px;
+}
+
+.player-entered.player-screen {
+  align-items: start;
+  padding-top: 12px;
+}
+
+.player-entered .player-card {
+  padding: 14px;
+}
+
+.player-entered .player-game {
+  gap: 10px;
+}
+
+.player-entered .player-avatar {
+  width: 136px;
+  height: 172px;
+  margin-top: -2px;
+}
+
+.player-entered .avatar-head {
+  width: 58px;
+  height: 58px;
+}
+
+.player-entered .avatar-body {
+  top: 76px;
+  width: 70px;
+  height: 72px;
+}
+
+.player-entered .avatar-arm {
+  top: 94px;
+  width: 52px;
+}
+
+.player-entered .avatar-leg {
+  top: 144px;
+  height: 32px;
+}
+
+.player-entered .avatar-leg.left { left: 45px; }
+.player-entered .avatar-leg.right { right: 45px; }
+
+.player-entered .player-badge {
+  justify-self: center;
+}
