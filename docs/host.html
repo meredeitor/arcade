@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -13,13 +13,17 @@
     <main class="host-panel">
       <h1>Control del facilitador</h1>
       <p id="hostStatus" class="muted"></p>
+      <p id="firebaseStatus" class="muted"></p>
       <div class="share-box">
         <strong>Pantalla</strong>
         <div id="displayUrl" class="share-url"></div>
+        <strong>Participantes</strong>
+        <div id="playUrl" class="share-url"></div>
       </div>
 
       <section class="row">
         <button class="primary" data-action="start">Lanzar pregunta</button>
+        <button data-action="close">Cerrar ronda por aciertos</button>
         <button data-action="next">Siguiente pregunta</button>
         <button data-action="reset">Reiniciar juego</button>
       </section>
@@ -50,5 +54,9 @@
       </section>
     </main>
     <script src="static-app.js"></script>
+    <script src="firebase-config.js"></script>
+    <script type="module" src="firebase-sync.js"></script>
   </body>
 </html>
+
+

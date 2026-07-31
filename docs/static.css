@@ -1,4 +1,4 @@
-.static-note {
+﻿.static-note {
   width: min(330px, 72vw);
 }
 
@@ -17,4 +17,8 @@
 
 .host-panel h2 {
   margin-top: 20px;
+}
+
+#firebaseStatus.online {
+  color: #7df9ff;
 }

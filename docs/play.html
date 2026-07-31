@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#070912">
+    <title>Jugador - 4DX Power Clash</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static.css">
+  </head>
+  <body class="phone">
+    <main class="phone-panel">
+      <h1>4DX Power Clash</h1>
+      <p id="firebaseStatus" class="muted"></p>
+      <section id="join" class="grid">
+        <input id="playerName" maxlength="28" placeholder="Tu nombre">
+        <select id="team">
+          <option value="red">Equipo Rojo</option>
+          <option value="blue">Equipo Azul</option>
+        </select>
+        <button id="joinBtn" class="primary">Entrar</button>
+      </section>
+      <section id="game" class="grid" hidden>
+        <p id="playerBadge" class="pill"></p>
+        <h2 id="phoneQuestion">Esperando pregunta...</h2>
+        <div id="options" class="grid"></div>
+        <p id="phoneStatus" class="muted"></p>
+      </section>
+    </main>
+    <script src="static-app.js"></script>
+    <script src="firebase-config.js"></script>
+    <script type="module" src="firebase-sync.js"></script>
+  </body>
+</html>

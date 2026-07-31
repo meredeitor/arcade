@@ -1,12 +1,15 @@
-const CACHE = "arcade-4dx-static-v1";
+﻿const CACHE = "arcade-4dx-firebase-v1";
 const ASSETS = [
   "./",
   "./index.html",
   "./host.html",
+  "./play.html",
   "./styles.css",
   "./static.css",
   "./static-app.js",
   "./arcade.js",
+  "./firebase-config.js",
+  "./firebase-sync.js",
   "./manifest.json",
   "./icon.svg"
 ];
@@ -26,3 +29,4 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   event.respondWith(caches.match(event.request).then((cached) => cached || fetch(event.request)));
 });
+
