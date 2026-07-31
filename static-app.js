@@ -217,7 +217,14 @@ function renderPhone() {
   if (!player) return;
   const q = state.questions[state.current];
   $("playerBadge").textContent = `${player.name} | ${state.teams[player.team].name}`;
-  $("phoneQuestion").textContent = state.phase === "question" ? q.text : "Espera a que el facilitador lance la pregunta.";
+  const avatar = $("playerAvatar");
+  if (avatar) {
+    avatar.classList.toggle("red-team", player.team === "red");
+    avatar.classList.toggle("blue-team", player.team === "blue");
+  }
+  const phaseLabel = $("phonePhase");
+  if (phaseLabel) phaseLabel.textContent = state.phase === "question" ? "Pregunta" : state.phase === "result" ? "Resultado" : state.phase === "final" ? "Final" : "Esperando";
+  $("phoneQuestion").textContent = state.phase === "question" ? q.text : "Tu peleador esta listo. Espera la siguiente pregunta.";
   const alreadyAnswered = Boolean(state.answers[player.id]);
   $("phoneStatus").textContent = alreadyAnswered ? "Respuesta enviada" : `${Object.keys(state.answers || {}).length} respuestas recibidas`;
   if (state.phase === "result" && state.lastRound) {

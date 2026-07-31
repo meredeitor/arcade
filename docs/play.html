@@ -9,23 +9,45 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="static.css">
   </head>
-  <body class="phone">
-    <main class="phone-panel">
-      <h1>4DX Power Clash</h1>
-      <p id="firebaseStatus" class="muted"></p>
-      <section id="join" class="grid">
-        <input id="playerName" maxlength="28" placeholder="Tu nombre">
-        <select id="team">
-          <option value="red">Equipo Rojo</option>
-          <option value="blue">Equipo Azul</option>
-        </select>
-        <button id="joinBtn" class="primary">Entrar</button>
-      </section>
-      <section id="game" class="grid" hidden>
-        <p id="playerBadge" class="pill"></p>
-        <h2 id="phoneQuestion">Esperando pregunta...</h2>
-        <div id="options" class="grid"></div>
-        <p id="phoneStatus" class="muted"></p>
+  <body class="phone player-screen">
+    <main class="player-shell">
+      <section class="player-card">
+        <div class="player-brand">
+          <span class="mini-pill">4DX</span>
+          <h1>Power Clash</h1>
+          <p id="firebaseStatus" class="muted"></p>
+        </div>
+
+        <section id="join" class="join-panel">
+          <div class="versus-mark">VS</div>
+          <label class="field-label" for="playerName">Nombre</label>
+          <input id="playerName" maxlength="28" placeholder="Tu nombre">
+          <label class="field-label" for="team">Equipo</label>
+          <select id="team">
+            <option value="red">Equipo Rojo</option>
+            <option value="blue">Equipo Azul</option>
+          </select>
+          <button id="joinBtn" class="primary">Entrar a la arena</button>
+        </section>
+
+        <section id="game" class="player-game" hidden>
+          <div id="playerAvatar" class="player-avatar red-team" aria-hidden="true">
+            <div class="avatar-aura"></div>
+            <div class="avatar-head"></div>
+            <div class="avatar-body"></div>
+            <div class="avatar-arm left"></div>
+            <div class="avatar-arm right"></div>
+            <div class="avatar-leg left"></div>
+            <div class="avatar-leg right"></div>
+          </div>
+          <p id="playerBadge" class="player-badge"></p>
+          <div class="question-card">
+            <span id="phonePhase" class="mini-pill">Esperando</span>
+            <h2 id="phoneQuestion">Esperando pregunta...</h2>
+          </div>
+          <div id="options" class="answer-grid"></div>
+          <p id="phoneStatus" class="player-status"></p>
+        </section>
       </section>
     </main>
     <script src="static-app.js"></script>
