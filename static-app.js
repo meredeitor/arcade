@@ -1,4 +1,4 @@
-﻿const questions = [
+const questions = [
   { text: "Segun 4DX, cual es el mayor enemigo de la ejecucion?", options: ["El torbellino del dia a dia", "La falta de talento", "La tecnologia", "El presupuesto"], answer: 0, discipline: "Disciplina 1" },
   { text: "Que significa WIG?", options: ["Meta crucialmente importante", "Indicador historico", "Junta semanal", "Plan de tareas"], answer: 0, discipline: "Disciplina 1" },
   { text: "Una buena WIG debe ir de X a Y para cuando?", options: ["De resultado actual a resultado deseado con fecha", "De actividad a reporte mensual", "De idea a presupuesto", "De problema a culpable"], answer: 0, discipline: "Disciplina 1" },
@@ -79,17 +79,32 @@ function clearRound() {
 
 function applyWinner(team, manual = false) {
   const q = state.questions[state.current];
+  const alreadyScored = Boolean(state.lastRound?.scored);
+  const previousScoredWinner = state.lastRound?.scoredWinner || null;
   if (!state.lastRound) {
-    state.lastRound = { totals: { red: 0, blue: 0 }, correct: { red: 0, blue: 0 }, winner: team, answer: q.answer, manual };
+    state.lastRound = { totals: { red: 0, blue: 0 }, correct: { red: 0, blue: 0 }, winner: team, answer: q.answer, manual, scored: false, scoredWinner: null };
   } else {
     state.lastRound.winner = team;
     state.lastRound.manual = manual;
   }
-  if (team) {
-    state.power[team] = Math.min(10, state.power[team] + 1);
-    state.wallHits = Math.min(12, state.wallHits + 1);
+
+  if (!alreadyScored) {
+    if (team) {
+      state.power[team] = Math.min(10, state.power[team] + 1);
+      state.wallHits = Math.min(12, state.wallHits + 1);
+    }
+  } else if (previousScoredWinner !== team) {
+    if (previousScoredWinner) state.power[previousScoredWinner] = Math.max(0, state.power[previousScoredWinner] - 1);
+    if (team) state.power[team] = Math.min(10, state.power[team] + 1);
+    if (previousScoredWinner && !team) state.wallHits = Math.max(0, state.wallHits - 1);
+    if (!previousScoredWinner && team) state.wallHits = Math.min(12, state.wallHits + 1);
   }
+
+  state.lastRound.scored = true;
+  state.lastRound.scoredWinner = team;
   state.phase = "result";
+  state.winner = null;
+  state.finalAttack = null;
   if (state.power.red >= 10 || state.power.blue >= 10) {
     state.winner = state.power.red >= 10 ? "red" : "blue";
     state.finalAttack = Date.now();
@@ -108,7 +123,9 @@ function closeRoundFromAnswers() {
   let winner = null;
   if (correct.red > correct.blue) winner = "red";
   if (correct.blue > correct.red) winner = "blue";
-  state.lastRound = { totals, correct, winner, answer: q.answer, manual: false };
+  const previousScored = Boolean(state.lastRound?.scored);
+  const previousScoredWinner = state.lastRound?.scoredWinner || null;
+  state.lastRound = { totals, correct, winner, answer: q.answer, manual: false, scored: previousScored, scoredWinner: previousScoredWinner };
   applyWinner(winner, false);
 }
 

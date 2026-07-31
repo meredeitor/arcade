@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   const canvas = document.getElementById("arcadeCanvas");
   if (!canvas) return;
 
@@ -76,6 +76,7 @@
     }
 
     scene.lastPower = { ...next.power };
+    scene.lastWallHits = next.wallHits || 0;
     scene.lastPhase = next.phase;
     scene.lastQuestion = next.current;
   }
@@ -681,8 +682,3 @@
   if (window.arcade4dxState) onState(window.arcade4dxState);
   requestAnimationFrame(frame);
 })();
-
-
-
-
-
