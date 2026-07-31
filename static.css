@@ -304,3 +304,15 @@
 .player-entered .player-badge {
   justify-self: center;
 }
+
+.connection-warning {
+  margin: 2px 0 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 209, 102, 0.9);
+  background: rgba(255, 209, 102, 0.13);
+  color: #ffd166;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.35;
+  text-transform: uppercase;
+}

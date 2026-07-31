@@ -249,6 +249,13 @@ function renderFirebaseStatus(status = window.arcadeFirebaseStatus) {
     el.textContent = status.message;
     el.classList.toggle("online", Boolean(status.online));
   }
+
+  const playerConnection = $("playerConnection");
+  if (playerConnection && status) {
+    const showError = status.level === "error";
+    playerConnection.hidden = !showError;
+    playerConnection.textContent = showError ? "Sin conexion con la sala. Revisa internet o recarga." : "";
+  }
 }
 
 function render() {

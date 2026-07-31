@@ -1,4 +1,4 @@
-const CACHE = "arcade-4dx-firebase-v5";
+const CACHE = "arcade-4dx-firebase-v6";
 const ASSETS = [
   "./",
   "./index.html",
