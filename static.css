@@ -1,0 +1,24 @@
+﻿.static-note {
+  width: min(330px, 72vw);
+}
+
+.red-win {
+  background: #ff3b4f !important;
+}
+
+.blue-win {
+  background: #3aa0ff !important;
+}
+
+.host-panel h1,
+.host-panel h2 {
+  margin-bottom: 10px;
+}
+
+.host-panel h2 {
+  margin-top: 20px;
+}
+
+#firebaseStatus.online {
+  color: #7df9ff;
+}

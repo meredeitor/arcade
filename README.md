@@ -29,7 +29,7 @@ Los celulares deben estar en la misma red que la computadora que ejecuta el serv
 
 ## Version PWA estatica para GitHub Pages
 
-La carpeta `docs/` contiene una version estatica que no depende de Node.js.
+La version estatica esta disponible en la raiz del repo y tambien en `docs/`. Para evitar que GitHub Pages muestre este README, publica desde `/root` o asegurate de que exista `index.html` en la fuente publicada.
 
 Para publicarla:
 
@@ -37,7 +37,7 @@ Para publicarla:
 2. Entra a `Pages`.
 3. En `Build and deployment`, selecciona `Deploy from a branch`.
 4. Branch: `main`.
-5. Folder: `/docs`.
+5. Folder: `/root`.
 6. Guarda.
 
 GitHub Pages publicara una URL parecida a:
@@ -86,3 +86,4 @@ service cloud.firestore {
 ```
 
 Para uso real conviene proteger la sala con autenticacion anonima, codigo de sala o reglas mas estrictas.
+
