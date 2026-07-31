@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#070912">
+    <title>Host - 4DX Power Clash</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static.css">
+  </head>
+  <body class="host">
+    <main class="host-panel">
+      <h1>Control del facilitador</h1>
+      <p id="hostStatus" class="muted"></p>
+      <div class="share-box">
+        <strong>Pantalla</strong>
+        <div id="displayUrl" class="share-url"></div>
+      </div>
+
+      <section class="row">
+        <button class="primary" data-action="start">Lanzar pregunta</button>
+        <button data-action="next">Siguiente pregunta</button>
+        <button data-action="reset">Reiniciar juego</button>
+      </section>
+
+      <h2>Ganador de la ronda</h2>
+      <section class="row">
+        <button class="red-win" data-action="redWin">Gana Rojo</button>
+        <button class="blue-win" data-action="blueWin">Gana Azul</button>
+        <button data-action="tie">Empate</button>
+      </section>
+
+      <h2>Pregunta actual</h2>
+      <div id="hostQuestion" class="scorebox"></div>
+
+      <h2>Resultado</h2>
+      <div id="wallStatus" class="scorebox">Muro: 0/12 golpes</div>
+      <section class="scoreline">
+        <div class="scorebox"><strong>Rojo</strong><div id="hostRed"></div></div>
+        <div class="scorebox"><strong>Azul</strong><div id="hostBlue"></div></div>
+      </section>
+
+      <h2>Ajuste manual de energia</h2>
+      <section class="row">
+        <button data-power="red" data-delta="1">+ Rojo</button>
+        <button data-power="red" data-delta="-1">- Rojo</button>
+        <button data-power="blue" data-delta="1">+ Azul</button>
+        <button data-power="blue" data-delta="-1">- Azul</button>
+      </section>
+    </main>
+    <script src="static-app.js"></script>
+  </body>
+</html>
