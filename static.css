@@ -23,6 +23,10 @@
   color: #7df9ff;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .player-screen {
   min-height: 100vh;
   display: grid;
